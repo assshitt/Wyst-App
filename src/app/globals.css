@@ -21,3 +21,110 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+@keyframes mesh-drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(90px, 50px) scale(1.12);
+  }
+  66% {
+    transform: translate(30px, 100px) scale(0.95);
+  }
+}
+
+@keyframes mesh-drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-80px, 70px) scale(0.92);
+  }
+  66% {
+    transform: translate(-20px, 30px) scale(1.08);
+  }
+}
+
+@keyframes mesh-drift-c {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(60px, -40px);
+  }
+}
+
+@keyframes mesh-drift-d {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-50px, 50px);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mesh-blob-a {
+  animation: mesh-drift-a 20s ease-in-out infinite;
+}
+
+.mesh-blob-b {
+  animation: mesh-drift-b 24s ease-in-out infinite;
+}
+
+.mesh-blob-c {
+  animation: mesh-drift-c 18s ease-in-out infinite;
+}
+
+.mesh-blob-d {
+  animation: mesh-drift-d 16s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fade-up 0.7s ease-out 0.15s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.7s ease-out 0.25s both;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fade-up 0.7s ease-out 0.35s both;
+}
+
+.animate-fade-up-delay-4 {
+  animation: fade-up 0.7s ease-out 0.45s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh-blob-a,
+  .mesh-blob-b,
+  .mesh-blob-c,
+  .mesh-blob-d,
+  .animate-fade-up,
+  .animate-fade-up-delay-1,
+  .animate-fade-up-delay-2,
+  .animate-fade-up-delay-3,
+  .animate-fade-up-delay-4 {
+    animation: none;
+  }
+}

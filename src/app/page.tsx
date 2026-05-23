@@ -1,12 +1,13 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Link from "next/link";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const howItWorks = [
   {
     step: "01",
     title: "Upload clothes",
-    description: "List pieces you never reach for. Photos, size, vibe — done in minutes.",
+    description:
+      "List pieces you never reach for. Photos, size, vibe — done in minutes.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden>
         <path
@@ -19,12 +20,13 @@ const howItWorks = [
       </svg>
     ),
     color: "text-violet-400",
-    glow: "shadow-violet-500/20",
+    glow: "hover:shadow-violet-500/20",
   },
   {
     step: "02",
     title: "Get verified",
-    description: "We check quality and authenticity so every swap feels legit.",
+    description:
+      "We check quality and authenticity so every swap feels legit.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden>
         <path
@@ -37,12 +39,13 @@ const howItWorks = [
       </svg>
     ),
     color: "text-emerald-400",
-    glow: "shadow-emerald-500/20",
+    glow: "hover:shadow-emerald-500/20",
   },
   {
     step: "03",
     title: "Earn points",
-    description: "Every approved drop stacks points. The better the fit, the more you bank.",
+    description:
+      "Every approved drop stacks points. The better the fit, the more you bank.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden>
         <path
@@ -55,12 +58,13 @@ const howItWorks = [
       </svg>
     ),
     color: "text-lime-400",
-    glow: "shadow-lime-500/20",
+    glow: "hover:shadow-lime-500/20",
   },
   {
     step: "04",
     title: "Swap for new ones",
-    description: "Spend points on fits you actually want. Ship or link up — your closet levels up.",
+    description:
+      "Spend points on fits you actually want. Ship or link up — your closet levels up.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden>
         <path
@@ -73,14 +77,15 @@ const howItWorks = [
       </svg>
     ),
     color: "text-fuchsia-400",
-    glow: "shadow-fuchsia-500/20",
+    glow: "hover:shadow-fuchsia-500/20",
   },
 ];
 
 const whyWyst = [
   {
     title: "Trust",
-    description: "Verified listings and real reviews. No ghost sellers, no bait-and-switch.",
+    description:
+      "Verified listings and real reviews. No ghost sellers, no bait-and-switch.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden>
         <path
@@ -96,7 +101,8 @@ const whyWyst = [
   },
   {
     title: "Sustainability",
-    description: "Keep clothes in rotation. Less waste, more drip — planet wins either way.",
+    description:
+      "Keep clothes in rotation. Less waste, more drip — planet wins either way.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden>
         <path
@@ -112,7 +118,8 @@ const whyWyst = [
   },
   {
     title: "Community",
-    description: "Swap with real people near you. Fits, DMs, and local meetups built in.",
+    description:
+      "Swap with real people near you. Fits, DMs, and local meetups built in.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden>
         <path
@@ -128,7 +135,8 @@ const whyWyst = [
   },
   {
     title: "Zero Cash",
-    description: "Points only. Your wallet stays closed while your wardrobe stays open.",
+    description:
+      "Points only. Your wallet stays closed while your wardrobe stays open.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden>
         <path
@@ -146,43 +154,12 @@ const whyWyst = [
 
 function GradientMesh() {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <motion.div
-        className="absolute -left-[15%] top-[5%] h-[60vh] w-[60vh] rounded-full bg-violet-600/45 blur-[130px]"
-        animate={{ x: [0, 90, 30, 0], y: [0, 50, 100, 0], scale: [1, 1.12, 0.95, 1] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute -right-[10%] top-[20%] h-[55vh] w-[55vh] rounded-full bg-emerald-500/40 blur-[120px]"
-        animate={{ x: [0, -80, -20, 0], y: [0, 70, 30, 0], scale: [1, 0.92, 1.08, 1] }}
-        transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute left-[25%] bottom-0 h-[50vh] w-[50vh] rounded-full bg-purple-900/35 blur-[110px]"
-        animate={{ x: [0, 60, -50, 0], y: [0, -40, 20, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute right-[20%] top-[55%] h-[40vh] w-[40vh] rounded-full bg-lime-500/25 blur-[100px]"
-        animate={{ x: [0, -50, 30, 0], y: [0, 50, -70, 0] }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-      />
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+      <div className="mesh-blob-a absolute -left-[15%] top-[5%] h-[60vh] w-[60vh] rounded-full bg-violet-600/45 blur-[130px]" />
+      <div className="mesh-blob-b absolute -right-[10%] top-[20%] h-[55vh] w-[55vh] rounded-full bg-emerald-500/40 blur-[120px]" />
+      <div className="mesh-blob-c absolute bottom-0 left-[25%] h-[50vh] w-[50vh] rounded-full bg-purple-900/35 blur-[110px]" />
+      <div className="mesh-blob-d absolute right-[20%] top-[55%] h-[40vh] w-[40vh] rounded-full bg-lime-500/25 blur-[100px]" />
       <div className="absolute inset-0 bg-[#050505]/55" />
-    </div>
-  );
-}
-
-function WystLogo({ size = "md" }: { size?: "sm" | "md" }) {
-  const box = size === "sm" ? "h-8 w-8 text-xs" : "h-9 w-9 text-sm";
-  const text = size === "sm" ? "text-lg" : "text-xl";
-  return (
-    <div className="flex items-center gap-2.5">
-      <span
-        className={`flex ${box} items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-emerald-400 font-black tracking-tighter text-[#050505]`}
-      >
-        W
-      </span>
-      <span className={`${text} font-bold tracking-[0.22em]`}>WYST</span>
     </div>
   );
 }
@@ -192,110 +169,66 @@ export default function Home() {
     <div className="relative min-h-screen overflow-x-hidden bg-[#050505] text-white">
       <GradientMesh />
 
-      {/* Navbar */}
-      <motion.nav
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="relative z-20 mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-10"
-      >
-        <WystLogo />
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#050505] transition-shadow hover:shadow-[0_0_24px_rgba(255,255,255,0.25)]"
-        >
-          Sign Up
-        </motion.button>
-      </motion.nav>
+      <div className="relative z-20">
+        <Navbar />
+      </div>
 
-      {/* Hero */}
       <section className="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-6 pb-28 pt-10 text-center md:px-10 md:pt-16">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15, duration: 0.6 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-300"
-        >
+        <div className="animate-fade-up-delay-1 mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-300">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
           </span>
           peer-to-peer · zero cash
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.7 }}
-          className="max-w-4xl text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]"
-        >
+        <h1 className="animate-fade-up-delay-2 max-w-4xl text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]">
           <span className="bg-gradient-to-r from-white via-violet-200 to-emerald-200 bg-clip-text text-transparent">
             Swap. Earn. Repeat.
           </span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.6 }}
-          className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-400 md:text-xl"
-        >
+        <p className="animate-fade-up-delay-3 mt-6 max-w-xl text-lg leading-relaxed text-zinc-400 md:text-xl">
           Trade clothes you don&apos;t wear for ones you&apos;ll love. No money.
           Just points.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45, duration: 0.6 }}
-          className="mt-10 flex w-full max-w-md flex-col gap-4 sm:max-w-none sm:flex-row sm:justify-center"
-        >
-          <motion.a
-            href="#"
-            whileHover={{ scale: 1.04, boxShadow: "0 0 36px rgba(34,197,94,0.4)" }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex h-14 items-center justify-center rounded-full bg-gradient-to-r from-emerald-500 to-lime-500 px-10 text-base font-bold text-[#050505] shadow-lg shadow-emerald-500/25"
+        <div className="animate-fade-up-delay-4 mt-10 flex w-full max-w-2xl flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
+          <Link
+            href="/signup"
+            className="inline-flex h-14 items-center justify-center rounded-full bg-gradient-to-r from-emerald-500 to-lime-500 px-10 text-base font-bold text-[#050505] shadow-lg shadow-emerald-500/25 transition-transform hover:scale-105 hover:shadow-[0_0_36px_rgba(34,197,94,0.4)]"
           >
             Start Swapping
-          </motion.a>
-          <motion.a
+          </Link>
+          <Link
+            href="/browse"
+            className="inline-flex h-14 items-center justify-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-10 text-base font-semibold text-emerald-300 transition-all hover:scale-105 hover:bg-emerald-500/20"
+          >
+            Browse Items
+          </Link>
+          <Link
             href="#how-it-works"
-            whileHover={{ scale: 1.04, borderColor: "rgba(255,255,255,0.4)" }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex h-14 items-center justify-center rounded-full border border-white/20 bg-transparent px-10 text-base font-semibold text-white transition-colors hover:bg-white/5"
+            className="inline-flex h-14 items-center justify-center rounded-full border border-white/20 bg-transparent px-10 text-base font-semibold text-white transition-all hover:scale-105 hover:border-white/40 hover:bg-white/5"
           >
             How it Works
-          </motion.a>
-        </motion.div>
+          </Link>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, duration: 0.7 }}
-          className="mt-16 w-full max-w-2xl rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-5 backdrop-blur-md"
-        >
+        <div className="mt-16 w-full max-w-2xl rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-5 backdrop-blur-md">
           <p className="text-sm text-zinc-500">
             <span className="font-semibold text-zinc-300">12,400+</span> items
             swapped · <span className="font-semibold text-zinc-300">4.9★</span>{" "}
             community · <span className="font-semibold text-emerald-400">$0</span>{" "}
             spent
           </p>
-        </motion.div>
+        </div>
       </section>
 
-      {/* How It Works */}
       <section
         id="how-it-works"
         className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-14 text-center"
-        >
+        <div className="mb-14 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-violet-400">
             How it Works
           </p>
@@ -305,18 +238,13 @@ export default function Home() {
           <p className="mx-auto mt-4 max-w-md text-zinc-500">
             Upload → verify → earn → swap. The loop that never gets old.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {howItWorks.map((item, i) => (
-            <motion.article
+            <article
               key={item.title}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.08, duration: 0.55 }}
-              whileHover={{ y: -6 }}
-              className={`group relative rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-shadow hover:shadow-xl ${item.glow}`}
+              className={`group relative rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all hover:-translate-y-1.5 hover:shadow-xl ${item.glow}`}
             >
               <span className="text-xs font-mono text-zinc-600">{item.step}</span>
               <div
@@ -333,21 +261,14 @@ export default function Home() {
                   →
                 </span>
               )}
-            </motion.article>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* Why WYST */}
       <section className="relative z-10 border-y border-white/10 bg-white/[0.02] py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-6 md:px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-            className="mb-14 text-center"
-          >
+          <div className="mb-14 text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-emerald-400">
               Why WYST
             </p>
@@ -357,18 +278,13 @@ export default function Home() {
             <p className="mx-auto mt-4 max-w-lg text-zinc-500">
               Not another marketplace — a culture of swapping that actually slaps.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:gap-6">
-            {whyWyst.map((item, i) => (
-              <motion.article
+            {whyWyst.map((item) => (
+              <article
                 key={item.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.07, duration: 0.55 }}
-                whileHover={{ scale: 1.02 }}
-                className={`rounded-2xl border border-white/10 bg-gradient-to-br ${item.gradient} p-8 backdrop-blur-sm`}
+                className={`rounded-2xl border border-white/10 bg-gradient-to-br ${item.gradient} p-8 backdrop-blur-sm transition-transform hover:scale-[1.02]`}
               >
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#050505]/80 text-emerald-400 ring-1 ring-white/10">
                   {item.icon}
@@ -377,32 +293,15 @@ export default function Home() {
                 <p className="mt-3 text-sm leading-relaxed text-zinc-400">
                   {item.description}
                 </p>
-              </motion.article>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:px-10">
-        <div className="flex flex-col items-center justify-between gap-8 border-t border-white/10 pt-12 md:flex-row md:items-end">
-          <div className="flex flex-col items-center gap-3 md:items-start">
-            <WystLogo size="sm" />
-            <p className="max-w-xs text-center text-sm text-zinc-500 md:text-left">
-              Swap clothes. Stack points. Stay sustainable. Your next fit is one
-              upload away.
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-2 text-center md:items-end">
-            <p className="text-xs text-zinc-600">
-              © {new Date().getFullYear()} WYST. All rights reserved.
-            </p>
-            <p className="text-xs text-zinc-700">
-              Gen-Z closets · zero cash · infinite rotation
-            </p>
-          </div>
-        </div>
-      </footer>
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 }
