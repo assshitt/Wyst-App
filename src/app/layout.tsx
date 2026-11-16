@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import StoreHydrator from "@/components/StoreHydrator";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,9 +14,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WYST — Swap. Earn. Repeat.",
+  title: {
+    default: "WYST — Swap. Earn. Repeat.",
+    template: "%s — WYST",
+  },
   description:
-    "Trade clothes you don't wear for ones you'll love. No money. Just points.",
+    "WYST is a points-based clothing swap for campus communities. List what you don't wear, earn points, and spend them on something new. No cash.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#040706",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -24,11 +33,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full font-sans">{children}</body>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
+        {children}
+        <StoreHydrator />
+      </body>
     </html>
   );
 }

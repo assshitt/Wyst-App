@@ -1,117 +1,52 @@
-<div align="center">
-
 # WYST
 
-**Swap. Earn. Repeat.**
+Swap. Earn. Repeat. A points-based clothing swap for campus communities.
 
-A peer-to-peer clothing swap platform for college students. Give the clothes you never wear, earn points, and swap them for something you will.
+Built with Next.js (App Router) and plain CSS. No UI framework: the whole design
+system lives in `src/app/globals.css`.
 
-[**Live demo →**](https://wyst-app.vercel.app) &nbsp;·&nbsp; [Case study](https://ashitdesign.framer.website/work/projects/wyst) &nbsp;·&nbsp; [Behance](https://www.behance.net/ashitkhobragade1)
-
-![Next.js](https://img.shields.io/badge/Next.js-16-000?logo=nextdotjs&logoColor=white)
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
-![Vercel](https://img.shields.io/badge/deployed_on-Vercel-000?logo=vercel&logoColor=white)
-
-<img src="docs/images/hero.jpg" alt="WYST app screens" width="100%">
-
-</div>
-
----
-
-## The problem
-
-College students own clothes they never wear, selling them is a hassle, buying new is expensive, and strangers on resale apps aren't trusted. Meanwhile India piles up around 7.8 million tonnes of textile waste every year.
-
-WYST makes swapping clothes on campus easier and more trustworthy by combining a **points-based exchange** with **verified users**, **curated listings** and a simple way to discover what's nearby.
-
-## How it works
-
-<img src="docs/images/app.jpg" alt="Discover, Request, Give and Earn" width="100%">
-
-1. **Discover** — browse listings from students on your campus, filtered by category, size and condition.
-2. **Request** — ask for an item and pay in points, not money.
-3. **Give** — list something you don't wear in a few steps.
-4. **Earn** — get points when someone swaps your piece, then spend them on your next find.
-
-## Features in this MVP
-
-- **Browse** with filters for category (tops, bottoms, dresses, outerwear, shoes, accessories), size, condition and swap preference (meetup or delivery), and sorting by newest or most popular.
-- **Listing pages** with photos, brand, size, colour, condition badge, verified-seller tag and similar items.
-- **List an item** in four steps: upload photos, item details, set a points value, review and submit.
-- **Dashboard** with your points balance, my listings, incoming and outgoing requests, wishlist, transaction history and profile settings.
-- **Wishlist** and points balance shared across the app with a Zustand store.
-- **Sign up and log in** screens.
-- **Responsive** layout for phones and desktops.
-
-> This is a front-end MVP. Listings are sample data in `src/lib/listings.ts` and the user is mocked in the store; there is no backend or real authentication yet.
-
-<img src="docs/images/mvp.jpg" alt="The WYST MVP on laptop and phone" width="100%">
-
-## Design
-
-WYST started as a design project: research with students on campus, personas, journey maps, the points economy and a full mobile design system, before any code was written.
-
-<img src="docs/images/screens.jpg" alt="Every screen, one system" width="100%">
-
-<img src="docs/images/system.jpg" alt="WYST design system" width="100%">
-
-Read the full process in the [case study](https://ashitdesign.framer.website/work/projects/wyst).
-
-## Tech stack
-
-| | |
-| --- | --- |
-| Framework | [Next.js 16](https://nextjs.org) (App Router) |
-| UI | React 19, TypeScript |
-| Styling | Tailwind CSS 4 |
-| State | [Zustand](https://github.com/pmndrs/zustand) |
-| Hosting | Vercel |
-
-## Run it locally
+## Run it
 
 ```bash
-git clone https://github.com/assshitt/Wyst-App.git
-cd Wyst-App
 npm install
-npm run dev
+npm run dev      # http://localhost:3000
+npm run build    # production build (run this before you push)
 ```
 
-Then open [http://localhost:3000](http://localhost:3000).
+## Pages
 
-| Script | What it does |
+| Route | What it is |
 | --- | --- |
-| `npm run dev` | start the dev server |
-| `npm run build` | production build |
-| `npm start` | serve the production build |
-| `npm run lint` | run ESLint |
+| `/` | Landing page with the moving light background |
+| `/browse` | Marketplace with search, filters and sorting |
+| `/listing/[id]` | Item detail and swap request |
+| `/upload` | Four-step listing flow |
+| `/dashboard` | Overview |
+| `/dashboard/wallet` | Points balance and history |
+| `/dashboard/listings` | Your items |
+| `/dashboard/swaps` | Incoming, outgoing and past swaps |
+| `/dashboard/wishlist` | Saved items |
+| `/dashboard/settings` | Profile and preferences |
+| `/messages` | Chat |
+| `/notifications` | Activity |
+| `/how-it-works`, `/help`, `/about` | Guides, FAQ, trust and safety |
+| `/terms`, `/privacy` | Legal |
+| `/login`, `/signup` | Account |
 
-## Project structure
+On phones the same pages run as an app: a bottom tab bar with a raised
+"list an item" button, sheet-style filters and a full-screen chat.
 
-```
-src/
-├─ app/                  routes (App Router)
-│  ├─ page.tsx           home
-│  ├─ browse/            browse and filter listings
-│  ├─ listing/[id]/      listing detail
-│  ├─ upload/            list an item
-│  ├─ dashboard/         points, listings, requests, wishlist
-│  ├─ login/  signup/    auth screens
-├─ components/           Navbar, ListingCard, UploadForm, Dashboard, ...
-├─ lib/listings.ts       sample listings
-└─ store/userStore.ts    user, points and wishlist (Zustand)
-```
+## Where things live
 
-## Roadmap
+- `src/app/globals.css` — colours, type, components, responsive rules
+- `src/components/` — shared UI (`SiteHeader`, `TabBar`, `ListingCard`, `Icon`, ...)
+- `src/lib/listings.ts` — sample catalogue
+- `src/lib/demo.ts` — sample activity for the demo account, points rules, FAQ
+- `src/store/userStore.ts` — account, points, swaps, wishlist (saved in the browser)
+- `public/hero/` — landing background video and its poster frame
 
-- [ ] Real accounts with college email verification
-- [ ] Database and image storage for listings
-- [ ] In-app chat and QR handover to confirm a swap
-- [ ] Points ledger on the server, with anti-abuse checks
+## Preview build
 
-## About
-
-Founded, designed and built by **Ashit Khobragade**, a design student at IIT Delhi.
-
-[Portfolio](https://ashitdesign.framer.website) · [LinkedIn](https://www.linkedin.com/in/ashit-k-4b14412b8) · [Behance](https://www.behance.net/ashitkhobragade1) · [Instagram](https://www.instagram.com/assshitt_/)
+Accounts are stored in the browser on the visitor's device. Nothing is sent to a
+server yet, so any email and password will log in. Replace the store actions with
+real API calls (for example Supabase) to go live.

@@ -1,40 +1,63 @@
 import Link from "next/link";
+import Logo from "@/components/Logo";
+
+const COLUMNS = [
+  {
+    title: "Swap",
+    links: [
+      { href: "/browse", label: "Browse the rack" },
+      { href: "/upload", label: "List an item" },
+      { href: "/dashboard/wallet", label: "Points wallet" },
+      { href: "/dashboard/swaps", label: "Your swaps" },
+    ],
+  },
+  {
+    title: "Learn",
+    links: [
+      { href: "/how-it-works", label: "How it works" },
+      { href: "/help", label: "Help & FAQ" },
+      { href: "/help#safety", label: "Trust & safety" },
+      { href: "/about", label: "About WYST" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { href: "/terms", label: "Terms of use" },
+      { href: "/privacy", label: "Privacy" },
+      { href: "/help#contact", label: "Contact" },
+    ],
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#050505]">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-10 md:flex-row md:px-6">
-        <div className="flex flex-col items-center gap-2 md:items-start">
-          <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-emerald-400 text-sm font-black text-[#050505]">
-              W
-            </span>
-            <span className="text-lg font-bold tracking-[0.2em]">WYST</span>
+    <footer className="footer">
+      <div className="wrap">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <Logo />
+            <p>
+              A points-based clothing swap for campus communities. Give what you don&apos;t wear, get what you will.
+            </p>
           </div>
-          <p className="text-sm text-zinc-500">Swap. Earn. Repeat.</p>
+          {COLUMNS.map((column) => (
+            <div key={column.title}>
+              <h4>{column.title}</h4>
+              <ul>
+                {column.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-
-        <nav className="flex flex-wrap justify-center gap-6 text-sm text-zinc-400">
-          <Link href="/browse" className="hover:text-white">
-            Browse
-          </Link>
-          <Link href="/upload" className="hover:text-white">
-            Upload
-          </Link>
-          <Link href="/dashboard" className="hover:text-white">
-            Dashboard
-          </Link>
-          <Link href="/login" className="hover:text-white">
-            Login
-          </Link>
-          <Link href="/signup" className="hover:text-white">
-            Sign Up
-          </Link>
-        </nav>
-
-        <p className="text-xs text-zinc-600">
-          © {new Date().getFullYear()} WYST. Zero cash. All points.
-        </p>
+        <div className="footer-base">
+          <span>© 2026 WYST. Swap. Earn. Repeat.</span>
+          <span>Made on campus in New Delhi</span>
+        </div>
       </div>
     </footer>
   );
